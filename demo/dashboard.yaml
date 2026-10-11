@@ -1,0 +1,37 @@
+title: Everforest Demo
+views:
+  - title: Home
+    path: home
+    icon: mdi:home
+    cards:
+      - type: weather-forecast
+        entity: weather.home
+        forecast_type: daily
+
+      - type: entities
+        title: Room
+        entities:
+          - entity: sensor.living_room_humidity
+            name: Humidity
+
+      - type: custom:bubble-card
+        card_type: climate
+        entity: climate.living_room
+        state_content:
+          - state
+          - current_temperature
+        step: 0.5
+        min_temp: 16
+        max_temp: 30
+
+      - type: custom:bubble-card
+        card_type: button
+        entity: light.living_room
+        name: Living room light
+        use_accent_color: true
+
+      - type: entities
+        title: Garage
+        entities:
+          - entity: cover.garage_door
+            name: Garage door
