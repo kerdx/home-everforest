@@ -22,6 +22,8 @@ This per-card option is optional and leaves other cards free to display their ac
 
 Bubble Card v3.3.0 or newer applies the dark Everforest on-state surface to this button while keeping its icon teal. Earlier versions may fall back to the lighter accent color.
 
+On Bubble Card v3.3.0 or newer, climate heat and cool states use distinct icon accents while the card background stays neutral for readability.
+
 ## Manual installation
 
 1. Copy the `themes/` directory into `config/themes/` in your Home Assistant configuration.
