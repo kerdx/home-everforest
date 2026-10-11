@@ -1,32 +1,39 @@
-# Everforest per Home Assistant
+# Everforest for Home Assistant
 
-Tema Home Assistant autonomo ispirato alla palette del tema [Everforest GTK](https://github.com/Fausto-Korpsvart/Everforest-GTK-Theme), con due temi selezionabili separatamente:
+An independent, Everforest-themed Home Assistant theme with two separately selectable variants:
 
-- **Everforest Light** — fondo crema, superfici chiare e testo grigio.
-- **Everforest Dark** — fondi antracite, superfici grigio-verdi e testo caldo.
+- **Everforest Light** — warm cream backgrounds, light surfaces, and muted gray text.
+- **Everforest Dark** — charcoal backgrounds, green-gray surfaces, and warm text.
 
-La palette è adattata alle variabili colore di Home Assistant: non vengono copiati CSS GTK o lo stile frosted-glass del progetto [homeassistant-frosted-glass-themes](https://github.com/wessamlauf/homeassistant-frosted-glass-themes), citato solo come riferimento per la struttura dei temi HA. Non servono card-mod, UIX o altre dipendenze runtime.
+The theme uses Home Assistant theme variables and requires no additional runtime dependencies.
 
-Alcuni colori per testo e selezioni sono scuriti rispetto agli accenti GTK per mantenere un contrasto leggibile sulle superfici di Home Assistant.
+## Bubble Card
 
-## Installazione manuale
+Bubble Card support is optional. The theme provides Bubble Card's documented global CSS variables for a coordinated appearance; Bubble Card is not required to use the theme. For a single Bubble light button, you can optionally use the theme accent instead of the light's own color:
 
-1. Copia la directory `themes/` in `config/themes/` nella configurazione di Home Assistant.
-2. Se non hai già una sezione `frontend:` in `configuration.yaml`, aggiungi:
+```yaml
+type: custom:bubble-card
+card_type: button
+entity: light.example
+use_accent_color: true
+```
+
+This per-card option is optional and leaves other cards free to display their actual light or RGB colors.
+
+## Manual installation
+
+1. Copy the `themes/` directory into `config/themes/` in your Home Assistant configuration.
+2. Add the following to `configuration.yaml` if it is not already present:
 
    ```yaml
    frontend:
      themes: !include_dir_merge_named themes
    ```
 
-   Se `frontend:` esiste già, aggiungi `themes: !include_dir_merge_named themes` al suo interno senza creare una seconda sezione.
-3. Ricarica i temi da **Strumenti per sviluppatori → YAML → Ricarica temi** (la voce può variare in base alla versione) oppure riavvia Home Assistant.
-4. Seleziona **Everforest Light** o **Everforest Dark** dal tema del profilo utente.
+   If `frontend:` already exists, add the `themes` entry under it rather than creating a second `frontend:` section.
+3. Reload themes from **Developer Tools → YAML → Reload themes**, or restart Home Assistant.
+4. Select **Everforest Light** or **Everforest Dark** in your user profile's theme settings.
 
-## Installazione con HACS
+## HACS installation
 
-Per usare HACS, pubblica prima il progetto in un repository GitHub pubblico. Poi aggiungi l'URL come **repository personalizzato** di categoria **Theme** e installalo. Dopo l'installazione ricarica i temi o riavvia Home Assistant e seleziona la variante desiderata dal profilo. Se la versione di HACS in uso non espone questa categoria o non installa il file del tema, usa l'installazione manuale qui sopra.
-
-## Attribuzione
-
-Everforest è il riferimento cromatico: [Everforest GTK Theme](https://github.com/Fausto-Korpsvart/Everforest-GTK-Theme). Per la convenzione di struttura Home Assistant è stato consultato [homeassistant-frosted-glass-themes](https://github.com/wessamlauf/homeassistant-frosted-glass-themes). Questo progetto è indipendente e non è affiliato ai rispettivi autori.
+Add this public GitHub repository as a custom repository in HACS and select the **Theme** category. Install the theme, reload themes or restart Home Assistant, then select the desired variant in your user profile.
