@@ -20,6 +20,8 @@ use_accent_color: true
 
 This per-card option is optional and leaves other cards free to display their actual light or RGB colors.
 
+Bubble Card v3.3.0 or newer applies the dark Everforest on-state surface to this button while keeping its icon teal. Earlier versions may fall back to the lighter accent color.
+
 ## Manual installation
 
 1. Copy the `themes/` directory into `config/themes/` in your Home Assistant configuration.
